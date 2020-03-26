@@ -1,4 +1,4 @@
-# nodejs-sequelize-tutorials/rin544c_1st_step
+# nodejs-sequelize-tutorials/rin544b_1st_step
 
 A Sequelize tutorial for beginners to start fresh. 
 
