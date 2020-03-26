@@ -14,7 +14,7 @@ Begin here to start fresh. It shows the very basic structure to perform your fir
 https://ultering.com/it4us/?p=1953 , NODE.JS: USING SEQUELIZE – EXPRESS PROJECT 1: SUPER SIMPLE PROJECT FOR BEGINNERS
 
 
--Same project but using PostgreSQL database cloud service (no need of database installation):
+- Same project but using PostgreSQL database cloud service (no need of database installation):
 
 https://ultering.com/it4us/?p=1967 , NODE.JS: USING SEQUELIZE - EXPRESS PROJECT 1: SIMPLE PROJECT FOR BEGINNERS ON CLOUD
 
