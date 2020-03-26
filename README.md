@@ -9,7 +9,7 @@ Also, it may be used MariaDB (MySQL) or another database.
 
 Begin here to start fresh. It shows the very basic structure to perform your first sequelize task. 
 
-The other posts evolves from this one.
+The other posts evolve from this one.
 
 - Tutorial using local PostgreSQL database (requires database installation):
 
