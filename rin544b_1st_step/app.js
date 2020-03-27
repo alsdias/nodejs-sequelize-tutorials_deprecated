@@ -1,5 +1,3 @@
-/* project name: rin544b */
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -40,15 +38,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// PLACEHOLDER FOR SEQUELIZE'S CODE
+var pg = require('pg');
+//or native libpq bindings
+//var pg = require('pg').native
+
 
 var Sequelize = require('sequelize')
-  , sequelize = new Sequelize('rin544', 'postgres', 'postgres', {
-      dialect: "postgres", // or 'sqlite', 'postgres', 'mariadb'
-      port:    5432, // or 5432 (for postgres)
-    });
+  , sequelize = new Sequelize({
+    username: "mutclyib",
+    password: "89RRrgOpCmuNkZxBMPxWC-5Koz2hvYCJ",
+    database: "mutclyib",
+    host: "tuffi.db.elephantsql.com",
+	port: 5432,
+    dialect: "postgres"
+});
 
-//Connects to the database and if successful, returns message, otherwise error's stack trace.
 sequelize
   .authenticate()
   .then(function(err) {
@@ -58,7 +62,6 @@ sequelize
   });
 
 
-// If you use this option with Capital letter, PostgreSQL will require double quotes like this:
 // select * from "public"."Users";
 // select * from "Users";
 //var User = sequelize.define('User', {
@@ -66,47 +69,41 @@ sequelize
 //  password: Sequelize.STRING
 //});
 
-// Defining a table name of your own — better than using the default.
+// Defining table name.
 // select * from public.user;  
-var User = sequelize.define('User', {
-  username: Sequelize.STRING,
-  password: Sequelize.STRING
-}, {
-  tableName: 'user', // this will define the table's name
-  //timestamps: false           // this will deactivate the timestamp columns
-})
+// var User = sequelize.define('User', {
+//   username: Sequelize.STRING,
+//   password: Sequelize.STRING
+// }, {
+//   tableName: 'user', // this will define the table's name
+//   //timestamps: false           // this will deactivate the timestamp columns
+// })
 
-// executes the mappgin defined above creting the table
-sequelize.sync({ force: true }) // drops and recreates
-  //.sync({ force: false }) // keeps tables' contents.
+sequelize
+  .sync({ force: true }) // drops and recreates. Comment after first time to try the other operations.
+  //.sync({ force: false }) // doesn't drop and recreate. Uncomment after first time to try the other operations.
   .then(function(err) {
     console.log('It worked!');
   }, function (err) { 
     console.log('An error occurred while creating the table:', err);
   });
+  
+User.create({
+ username: 'john-doe',
+ password: 'i-am-so-great'
+}).then(function(user) {
+ console.log('[INFO]: john-doe persisted');
+console.log(User)
+})
 
-// Uncomment this line for the 1st time you execute the app.
-// It populates the table. Comment after population to avoid repeating the operation.
-//User.create({
-//  username: 'john-doe',
-//  password: 'i-am-so-great'
-//}).then(function(user) {
-//  console.log('[INFO]: john-doe persisted');
-//console.log(User)
-//})
-
-// Uncomment to find all - if you let the code that populates uncommented,
-// it will be returned several registries.
-//User.findAll().then(function (users) {
-//        console.log(users);
-//    });
-
-// Find by Primary key    
-//User.findByPk(1).then(function (users) {
-//        console.log(users.id + ", " + users.username);
-//    });
-
-// Find by username.    
+User.findAll().then(function (users) {
+       console.log(users);
+   });
+	
+User.findByPk(1).then(function (users) {
+        console.log(users.id + ", " + users.username);
+    });
+	
 //User.find({ where: { username: 'john-doe' } })
 //  .then(function(err, johnDoe) {
 //    if (!johnDoe) {
@@ -117,7 +114,5 @@ sequelize.sync({ force: true }) // drops and recreates
 //    }
 //  });
 
-
-// END OF PLACEHOLDER FOR SEQUELIZE'S CODE
-
+  
 module.exports = app;
