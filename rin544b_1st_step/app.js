@@ -79,40 +79,48 @@ var User = sequelize.define('User', {
 //   //timestamps: false           // this will deactivate the timestamp columns
 // })
 
+// IMPORTANT: run application once with true. After run it with false.
+var recreateDb = false; 
+
 sequelize
-  .sync({ force: true }) // drops and recreates. Comment after first time to try the other operations.
-  //.sync({ force: false }) // doesn't drop and recreate. Uncomment after first time to try the other operations.
+  .sync({ force: recreateDb }) // if true, drops and recreates.
   .then(function(err) {
     console.log('It worked!');
   }, function (err) { 
     console.log('An error occurred while creating the table:', err);
   });
   
-User.create({
- username: 'john-doe',
- password: 'i-am-so-great'
-}).then(function(user) {
- console.log('[INFO]: john-doe persisted');
-console.log(User)
-})
+if (!recreateDb) {
 
-User.findAll().then(function (users) {
-       console.log(users);
-   });
-  
-User.findByPk(1).then(function (users) {
-        console.log(users.id + ", " + users.username);
-    });
-  
-//User.find({ where: { username: 'john-doe' } })
-//  .then(function(err, johnDoe) {
-//    if (!johnDoe) {
-//      console.log('No user with the username "john-doe" has been found.');
-//    } else {
-//      console.log('Hello ' + johnDoe.username + '!');
-//      console.log('All attributes of john:', johnDoe.get());
-//    }
-//  });
+  User.create({
+   username: 'john-doe',
+   password: 'i-am-so-great'
+  }).then(function(user) {
+   console.log('[INFO]: john-doe persisted');
+   //console.log(User)
+  })
 
+  User.findByPk(1).then(function (users) {
+    console.log('------------------------------------------');
+    console.log('>findByPk(1):');
+    console.log('\n[INFO]: ' + users.id + ", " + users.username + '\n');
+  });
+
+  User.findAll().then(function (users) {
+    console.log('------------------------------------------');
+    console.log('>findAll():');
+    users.forEach( x => {console.log('\n[INFO]: ' + x.id + ", " + x.username + '\n');})
+  });
+    
+  //User.find({ where: { username: 'john-doe' } })
+  //  .then(function(err, johnDoe) {
+  //    if (!johnDoe) {
+  //      console.log('No user with the username "john-doe" has been found.');
+  //    } else {
+  //      console.log('Hello ' + johnDoe.username + '!');
+  //      console.log('All attributes of john:', johnDoe.get());
+  //    }
+  //});
+  }
   
 module.exports = app;
