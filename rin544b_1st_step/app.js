@@ -49,7 +49,7 @@ var Sequelize = require('sequelize')
     password: "89RRrgOpCmuNkZxBMPxWC-5Koz2hvYCJ",
     database: "mutclyib",
     host: "tuffi.db.elephantsql.com",
-	port: 5432,
+  port: 5432,
     dialect: "postgres"
 });
 
@@ -64,10 +64,10 @@ sequelize
 
 // select * from "public"."Users";
 // select * from "Users";
-//var User = sequelize.define('User', {
-//  username: Sequelize.STRING,
-//  password: Sequelize.STRING
-//});
+var User = sequelize.define('User', {
+ username: Sequelize.STRING,
+ password: Sequelize.STRING
+});
 
 // Defining table name.
 // select * from public.user;  
@@ -99,11 +99,11 @@ console.log(User)
 User.findAll().then(function (users) {
        console.log(users);
    });
-	
+  
 User.findByPk(1).then(function (users) {
         console.log(users.id + ", " + users.username);
     });
-	
+  
 //User.find({ where: { username: 'john-doe' } })
 //  .then(function(err, johnDoe) {
 //    if (!johnDoe) {
