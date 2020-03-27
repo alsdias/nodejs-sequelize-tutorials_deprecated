@@ -100,10 +100,10 @@ if (!recreateDb) {
    //console.log(User)
   })
 
-  User.findByPk(1).then(function (users) {
+  User.findByPk(1).then(function (user) {
     console.log('------------------------------------------');
     console.log('>findByPk(1):');
-    console.log('\n[INFO]: ' + users.id + ", " + users.username + '\n');
+    console.log('\n[INFO]: ' + user.id + ", " + user.username + '\n');
   });
 
   User.findAll().then(function (users) {
