@@ -1,5 +1,3 @@
-/* coding: UTF-8  */
-
 /**
  * @SYNC: 
  * Using class:

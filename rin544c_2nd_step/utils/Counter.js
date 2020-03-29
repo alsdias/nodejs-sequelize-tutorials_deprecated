@@ -1,4 +1,4 @@
- /*
+ /* 
  * Provides sequential counting begining at 1 and incrementing by 1.
  * Example:
  * const Counter = require('./utils/Counter');
