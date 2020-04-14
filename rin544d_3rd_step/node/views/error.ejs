@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>todos_error</title>
+        <!-- Bootstrap core CSS -->
+        <link href="/stylesheets/pinegrow/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/stylesheets/pinegrow/starter-template.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&display=swap">
+    </head>
+    <body>
+		<% include menu %>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<img class="border border-0 border-light img-thumbnail w-100" src="../../images/todo_150.jpg" alt="">
+				</div>
+				<div class="align-middle col-md-6 mt-5 text-center">
+					<h1 class="m-n3">Error</h1>
+				</div>
+				<div class="col-md-3">&nbsp;</div>
+				<div class="col-md-3">&nbsp;</div>
+				<div class="col-md-3">&nbsp;</div>
+			</div>
+			<div style="height: 50px;">&nbsp;</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<h3><%= message %></h3>
+				</div>
+				<div class="col-md-4">
+					<h4><%= error.status %></h4>
+				</div>
+				<div class="col-md-4">
+          <p>&nbsp;</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+          <pre><%= error.stack %></pre>
+				</div>
+			</div>
+  
+			<div class="row">
+				<div class="col-md-12">
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		</div>
+        <!-- /.container -->
+        <!-- Bootstrap core JavaScript
+	L:\work\devcli_\javascript\jstopics\pinegrow_b4\node\public\stylesheets\pinegrow\todos_search.html
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/stylesheets/pinegrow/assets/js/jquery.min.js"></script>
+        <script src="/stylesheets/pinegrow/assets/js/popper.js"></script>
+        <script src="/stylesheets/pinegrow/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
