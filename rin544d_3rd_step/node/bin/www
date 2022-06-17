@@ -5,9 +5,8 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('node:server');
-var protocol = 'http';
-var http = require(protocol);
+var debug = require('debug')('prj:server');
+var http = require('http');
 
 /**
  * Get port from environment and store in Express.
