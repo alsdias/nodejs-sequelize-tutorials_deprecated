@@ -1,5 +1,10 @@
 # nodejs-sequelize-tutorials
 
+DEPRECATED: 
+Go to: 
+[node_sequelize_ultering_ml40643_1st_step](https://github.com/alsdias/node_sequelize_ultering_ml40643_1st_step)
+
+
 A Sequelize tutorial for beginners to start from scratch. 
 
 It shows the very basic structure to perform your first Sequelize tasks constructing a project using Node.js, Express and PostgreSQL. 
